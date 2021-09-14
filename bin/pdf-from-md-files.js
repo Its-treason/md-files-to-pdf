@@ -1,4 +1,4 @@
-const pdfFromMdFiles = require('../dist/index');
+const {pdfFromMdFiles} = require('../dist/index');
 const arg = require('arg');
 
 const args = arg({
@@ -17,6 +17,6 @@ if (
 
 const options = {
   heading: args['--heading'],
-}
+};
 
 pdfFromMdFiles(args['--doc-path'], args['--out-path'], options);

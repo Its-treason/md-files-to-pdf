@@ -6,7 +6,7 @@ Generate a PDF from multiple MarkDown files.
 ## Usage
 
 ```ts
-import pdfFromMdFiles from 'md-files-to-pdf';
+import {pdfFromMdFiles} from 'md-files-to-pdf';
 
 const options = {
   heading: 'Example',
