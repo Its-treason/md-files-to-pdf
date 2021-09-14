@@ -6,7 +6,10 @@
     "prestart": "npm run build",
     "start": "node bin/pdf-from-md-files.js",
     "build": "node scripts/build.js",
-    "lint": "eslint ./src/**/*.ts --fix"
+    "lint": "eslint ./src/**/*.ts --fix",
+    "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+    "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -24,12 +27,13 @@
     "webpack": "^5.52.1"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.29.1",
-    "@typescript-eslint/parser": "^4.29.1",
-    "eslint": "^7.32.0",
     "@types/marked": "^3.0.1",
     "@types/node": "^16.9.1",
     "@types/showdown": "^1.9.4",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
+    "eslint": "^7.32.0",
+    "generate-changelog": "^1.8.0",
     "typescript": "^4.4.3"
   }
 }
