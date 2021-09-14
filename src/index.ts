@@ -1,13 +1,9 @@
-import { resolve, basename, dirname } from 'path';
-import { existsSync, readdirSync, lstatSync, readFileSync, writeFileSync } from 'fs';
-import { Converter } from 'showdown';
+import {resolve, basename, dirname} from 'path';
+import {existsSync, readdirSync, lstatSync, readFileSync} from 'fs';
 import puppeteer from 'puppeteer';
-import marked, { options } from 'marked';
+import marked from 'marked';
 import hljs from 'highlight.js';
-
-interface PdfCreatenOptions {
-  heading?: string,
-}
+import {PdfCreatenOptions} from './types';
 
 module.exports = async function PdfFromMdFiles(docPath: string, outPath: string, options: PdfCreatenOptions = {}): Promise<boolean> {
   docPath = resolve(docPath);
@@ -16,7 +12,7 @@ module.exports = async function PdfFromMdFiles(docPath: string, outPath: string,
   const markDownString = generateFullMdString(docPath, options);
   const htmlString = convertMdToHtml(markDownString);
   return renderHtml(htmlString, outPath);
-}
+};
 
 function generateFullMdString(docPath: string, options: PdfCreatenOptions): string|never {
   if (existsSync(docPath) === false) {
@@ -76,8 +72,8 @@ async function renderHtml(htmlString: string, savePath: string): Promise<boolean
     dirname(require.resolve('highlight.js')),
     '..',
     'styles',
-    `github.css`,
-  )
+    'github.css',
+  );
   const css = readFileSync(cssFile).toString() + readFileSync(highlightCss).toString();
 
   const browser = await puppeteer.launch();
@@ -94,11 +90,11 @@ async function renderHtml(htmlString: string, savePath: string): Promise<boolean
       right: '40mm',
       bottom: '30mm',
       left: '20mm',
-    }
+    },
   });
   await browser.close();
 
-  return false
+  return false;
 }
 
 function convertMdToHtml(markDownString: string): string {
@@ -108,10 +104,10 @@ function convertMdToHtml(markDownString: string): string {
     // if the given language is not available in highlight.js, fall back to plaintext
     const language = languageName && hljs.getLanguage(languageName) ? languageName : 'plaintext';
 
-    return `<pre><code class="hljs ${language}">${hljs.highlight(code, { language }).value}</code></pre>`;
+    return `<pre><code class="hljs ${language}">${hljs.highlight(code, {language}).value}</code></pre>`;
   };
 
-  marked.setOptions({ renderer });
+  marked.setOptions({renderer});
 
   const htmlString = marked(markDownString);
 
