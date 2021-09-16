@@ -19,6 +19,9 @@
     "type": "GIT",
     "url": "https://github.com/Its-treason/md-files-to-pdf"
   },
+  "engines": {
+    "node": ">=12.4.0"
+  },
   "dependencies": {
     "arg": "^5.0.1",
     "highlight.js": "^11.2.0",
