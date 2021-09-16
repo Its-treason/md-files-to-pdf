@@ -8,10 +8,10 @@ export default function convertMarkDownToHtml(markDownString: string): string {
     // if the given language is not available in highlight.js, fall back to plaintext
     const language = languageName && hljs.getLanguage(languageName) ? languageName : 'plaintext';
 
-    return `<pre><code class="hljs ${language}">${hljs.highlight(code, {language}).value}</code></pre>`;
+    return `<pre><code class="hljs ${language}">${hljs.highlight(code, { language }).value}</code></pre>`;
   };
 
-  marked.setOptions({renderer});
+  marked.setOptions({ renderer });
 
   const htmlString = marked(markDownString);
 
