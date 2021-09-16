@@ -1,10 +1,11 @@
-const {pdfFromMdFiles} = require('../dist/index');
+const { pdfFromMdFiles } = require('../dist/index');
 const arg = require('arg');
 
 const args = arg({
   '--doc-path': String,
   '--out-path': String,
   '--heading': String,
+  '--output-html': String,
 });
 
 if (
@@ -17,6 +18,7 @@ if (
 
 const options = {
   heading: args['--heading'],
+  outputHtml: args['--output-html'],
 };
 
 pdfFromMdFiles(args['--doc-path'], args['--out-path'], options);

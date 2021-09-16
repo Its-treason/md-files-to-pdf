@@ -1,8 +1,8 @@
-import {existsSync, lstatSync, readdirSync, readFileSync} from 'fs';
-import {basename} from 'path';
-import {PdfCreatenOptions} from './types';
+import { existsSync, lstatSync, readdirSync, readFileSync } from 'fs';
+import { basename } from 'path';
+import { PdfCreationOptions } from './types';
 
-export default function readMdFiles(docPath: string, options: PdfCreatenOptions): string|never {
+export default function readMdFiles(docPath: string, options: PdfCreationOptions): string|never {
   if (existsSync(docPath) === false) {
     throw new Error(`Doc Path Not found! "${docPath}" does not exists!`);
   }
@@ -10,7 +10,7 @@ export default function readMdFiles(docPath: string, options: PdfCreatenOptions)
   return readFiles([], docPath, options);
 }
 
-function readFiles(level: number[], path: string, options: PdfCreatenOptions): string {
+function readFiles(level: number[], path: string, options: PdfCreationOptions): string {
   const files = readdirSync(path);
 
   if (files.length === 0) {

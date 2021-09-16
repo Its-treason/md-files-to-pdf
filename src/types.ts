@@ -1,3 +1,4 @@
-export interface PdfCreatenOptions {
+export interface PdfCreationOptions {
   heading?: string,
+  outputHtml?: string,
 }
