@@ -3,7 +3,7 @@
 }
 
 html {
-  font-size: 100%;
+  font-size: 16px;
 }
 
 body {
@@ -35,18 +35,43 @@ h6 {
   padding: 0.5em 0 0.25em;
 }
 
-h5,
-h6 {
-  padding: 0;
+
+h1 {
+  font-size: 5.875em;
+  letter-spacing: -1.5px;
+  font-weight: lighter;
+}
+
+h2 {
+  font-size: 3.75em;
+  letter-spacing: -0.5px;
+  font-weight: lighter;
+}
+
+h3 {
+  font-size: 3em;
+  letter-spacing: 0;
+  font-weight: normal;
+}
+
+h4 {
+  font-size: 2.125em;
+  letter-spacing: 0.25px;
+  font-weight: normal;
 }
 
 h5 {
-  font-size: 1em;
+  font-size: 1.5em;
+  letter-spacing: 0;
+  font-weight: 500;
+  padding: 0;
 }
 
 h6 {
-  font-size: 0.875em;
-  text-transform: uppercase;
+  font-size: 1.25em;
+  letter-spacing: 0.15px;
+  font-weight: 500;
+  padding: 0;
 }
 
 p {
@@ -85,7 +110,7 @@ pre code {
   padding: 0.1em 0.375em;
   border-radius: 0.25em;
   font-family: monospace;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 pre code {
@@ -124,6 +149,7 @@ table th {
 table tr {
   background-color: white;
   border-top: 1px solid gainsboro;
+  font-size: 0.6875em;
 }
 
 table tr:nth-child(2n) {
