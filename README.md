@@ -19,6 +19,8 @@ pdfFromMdFiles('path/to/md-files', 'path/to/pdf', options);
 ```ts
 {
   heading?: string, // Heading at the top. Default: Folder-Name
+  outputHtml?: string, // Path to save the generated HTML file, helpful for debugging
+  generateToc?: boolean, // If true, Generate a Table of Contents at the Top of the File
 }
 ```
 
@@ -27,6 +29,8 @@ pdfFromMdFiles('path/to/md-files', 'path/to/pdf', options);
 --doc-path "path/to/md-files" // Requiered, Path to Folder with MarkDown files
 --out-path "path/to/pdf" // Requiered, Path where the PDF should me saved
 --heading "Example" // Optional, Heading at the top. Default: Folder-Name
+--output-html "path/to/html" // Optional, save the generated HTML file, helpful for debugging
+--generate-toc // Optional, Generate a Table of Contents at the Top of the File
 ```
 
 ## Development

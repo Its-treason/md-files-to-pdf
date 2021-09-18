@@ -6,6 +6,7 @@ const args = arg({
   '--out-path': String,
   '--heading': String,
   '--output-html': String,
+  '--generate-toc': Boolean,
 });
 
 if (
@@ -19,6 +20,7 @@ if (
 const options = {
   heading: args['--heading'],
   outputHtml: args['--output-html'],
+  generateToc: args['--generate-toc'],
 };
 
 pdfFromMdFiles(args['--doc-path'], args['--out-path'], options);
