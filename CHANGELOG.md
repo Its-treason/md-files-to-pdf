@@ -1,3 +1,10 @@
+### 0.3.0 (2021-11-15)
+
+##### New Features
+
+*  Make file orderable ([e09f0e94](https://github.com/Its-treason/md-files-to-pdf/commit/e09f0e940df88d98a19705ba074060a18d1307c3))
+
+
 ### 0.2.0 (2021-09-14)
 
 ##### New Features
