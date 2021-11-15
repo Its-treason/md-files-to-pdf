@@ -4,14 +4,14 @@ import { MdFileCollection } from './MdFileCollection';
 import { PdfCreationOptions } from './types';
 
 export default function readMdFiles(docPath: string, options: PdfCreationOptions): MdFileCollection|never {
-  if (existsSync(docPath) === false) {
+  if (!existsSync(docPath)) {
     throw new Error(`Doc Path Not found! "${docPath}" does not exists!`);
   }
 
   const collection = new MdFileCollection(options);
 
   readFiles([], docPath, collection);
-  
+
   return collection;
 }
 
@@ -42,25 +42,30 @@ function readFiles(level: number[], path: string, collection: MdFileCollection):
 
     const filePath = `${path}/${file}`;
     const fileStats = lstatSync(filePath);
-    if (fileStats.isDirectory() === true) {
+    if (fileStats.isDirectory()) {
       if (readFiles(level, `${filePath}`, collection) === false) {
         level[level.length - 1]--;
       }
       return;
     }
 
-    if (file.endsWith('.md') === false) {
-      console.warn(`> Warning: "${filePath}" is not a MarkDown file!`);
+    if (!file.endsWith('.md')) {
+      console.warn(`> Warning: "${filePath}" is not a MarkDown file, skipping!`);
       level[level.length - 1]--;
       return;
     }
 
-    const content = readFileSync(`${filePath}`).toString();
+    const content = readFileSync(filePath).toString();
+
+    let heading = file.slice(0, -3);
+    if (heading.match(/__\d+__/) !== null) {
+      heading = heading.replace(/__\d+__/, '');
+    }
 
     collection.addFile({
       content,
       path: filePath,
-      heading: file.slice(0, -3),
+      heading,
       level: [...level],
     });
   });

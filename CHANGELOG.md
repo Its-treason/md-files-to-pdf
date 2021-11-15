@@ -1,3 +1,14 @@
+### 0.2.0 (2021-09-14)
+
+##### New Features
+
+*  Add Option to generate Table of Contents ([853b8c42](https://github.com/Its-treason/md-files-to-pdf/commit/853b8c42fad4e4dbca5f8645d2e02b4db4cdf8b9))
+
+##### Bugfixes
+
+*  Fix Font-Sizing ([be562301](https://github.com/Its-treason/md-files-to-pdf/commit/be5623014658061d43c80aff47d64d477f42c9ac))
+
+
 ### 0.1.0 (2021-09-14)
 
 ##### New Features

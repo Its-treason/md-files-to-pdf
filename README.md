@@ -24,6 +24,12 @@ pdfFromMdFiles('path/to/md-files', 'path/to/pdf', options);
 }
 ```
 
+### Defining file order
+
+The default oder of files is alphabetically.
+If u want a different order u can prefix your files with `__N__`, `N` must be replaced with a number.
+The `__N__` prefix will be removed in the generated PDF.
+
 ## CLI-Usage Options
 ```
 --doc-path "path/to/md-files" // Requiered, Path to Folder with MarkDown files
